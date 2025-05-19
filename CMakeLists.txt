@@ -7,7 +7,7 @@ include(pico_sdk_import.cmake)
 set(FREERTOS_KERNEL_PATH "c:/FreeRTOS-Kernel")
 include(${FREERTOS_KERNEL_PATH}/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake)
 
-project(Semaforo C CXX ASM)
+project(Monitor_enchente.c C CXX ASM)
 pico_sdk_init()
 
 
@@ -15,7 +15,7 @@ include_directories(${CMAKE_SOURCE_DIR}/lib)
 
 
 add_executable(${PROJECT_NAME}
-    Semaforo.c
+    Monitor_enchente.c
     lib/buzzer.c
     lib/ssd1306.c
     lib/leds.c
@@ -26,9 +26,9 @@ add_executable(${PROJECT_NAME}
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR})
-pico_set_program_name(Semaforo "Semaforo")
-pico_set_program_version(Semaforo "0.1")
-pico_generate_pio_header(Semaforo ${CMAKE_CURRENT_LIST_DIR}/ws2818b.pio)
+pico_set_program_name(Monitor_enchente.c "Monitor_enchente.c")
+pico_set_program_version(Monitor_enchente.c "0.1")
+pico_generate_pio_header(Monitor_enchente.c ${CMAKE_CURRENT_LIST_DIR}/ws2818b.pio)
 
 target_link_libraries(${PROJECT_NAME}
     pico_bootrom
